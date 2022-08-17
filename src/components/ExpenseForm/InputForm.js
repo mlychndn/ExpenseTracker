@@ -5,12 +5,10 @@ const InputForm = (props) => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [date, setDate] = useState("");
+  const [flag, setFlag] = useState("props.initial");
 
-  // const [userInput, setUserInput] = useState({
-  //   title: "",
-  //   price: "",
-  //   date: "",
-  // });
+  // console.log("initial", props);
+
   const titleHandler = (event) => {
     setTitle(event.target.value);
     // setUserInput({ title: event.target.value, price: "", date: "" });
@@ -21,7 +19,7 @@ const InputForm = (props) => {
   };
 
   const priceHandler = (event) => {
-    setPrice(event.target.value);
+    setPrice(+event.target.value);
     // setUserInput({ title: "", price: event.target.value, date: "" });
     // setUserInput({ ...userInput, price: event.target.value });
   };
@@ -36,7 +34,7 @@ const InputForm = (props) => {
 
     const expenseData = {
       title,
-      price,
+      amount: price,
       date,
     };
 
@@ -45,6 +43,13 @@ const InputForm = (props) => {
     setDate("");
 
     props.onNewExpenseSaved(expenseData);
+  };
+
+  const cancelHandler = (event) => {
+    // console.log("cancel button is clicked!");
+    event.preventDefault();
+    setFlag(true);
+    props.onCancelEvent(flag);
   };
 
   return (
@@ -68,12 +73,15 @@ const InputForm = (props) => {
           <label>Date</label>
           <input
             type="date"
-            min="2022-08-06"
+            min="2019-08-06"
             max="2022-12-31"
             value={date}
             onChange={dateHandler}
           />
         </div>
+        <button className="new-expense__actions" onClick={cancelHandler}>
+          Cancel
+        </button>
         <button className="new-expense__actions" type="submit">
           Submit
         </button>
