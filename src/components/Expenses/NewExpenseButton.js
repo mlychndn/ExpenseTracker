@@ -27,7 +27,7 @@ const NewExpenseButton = (props) => {
 
   if (initialFlag) {
     return (
-      <div className="new-expense__controls">
+      <div>
         <button className="new-expense__actions" onClick={addExpenseHAndler}>
           Add New Expense
         </button>

@@ -30,7 +30,7 @@ const ExpenseList = (props) => {
   };
   let printEl =
     expensesEl().length === 0 ? (
-      <div className="expenses-list__fallback">No Data Available</div>
+      <div className="expenses-list__fallback">Found no expenses</div>
     ) : (
       expensesEl()
     );
