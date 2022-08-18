@@ -31,6 +31,7 @@ const InputForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    //console.log("form is submitted");
 
     const expenseData = {
       title,
@@ -79,12 +80,10 @@ const InputForm = (props) => {
             onChange={dateHandler}
           />
         </div>
-        <button className="new-expense__actions" onClick={cancelHandler}>
-          Cancel
-        </button>
-        <button className="new-expense__actions" type="submit">
-          Submit
-        </button>
+        <div className="new-expense__actions">
+          <button onClick={cancelHandler}>Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
       </div>
     </form>
   );

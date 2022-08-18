@@ -3,13 +3,15 @@ import React from "react";
 import Card from "../UI/Card";
 import ExpenseList from "../Expenses/ExpenseList";
 import "./Expenses.css";
+import ExpenseChart from "./ExpensesChart";
 
 const Expenses = (props) => {
-  // console.log("expense", props.expenses);
+  // console.log("malay", props.expenses);
   return (
     <div>
       <Card className="expenses">
-        <ExpenseList items={props.expenses}></ExpenseList>
+        <ExpenseChart expenses={props.expenses} />
+        <ExpenseList items={props.expenses} />
       </Card>
     </div>
   );
